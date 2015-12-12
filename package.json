@@ -2,6 +2,9 @@
   "name": "bem-tools-find",
   "version": "0.0.0",
   "description": "Tool for bem-entities lookup",
+  "bin": {
+    "find": "bin/find"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,5 +25,9 @@
   "bugs": {
     "url": "https://github.com/bem-incubator/bem-tools-find/issues"
   },
-  "homepage": "https://github.com/bem-incubator/bem-tools-find#readme"
+  "homepage": "https://github.com/bem-incubator/bem-tools-find#readme",
+  "dependencies": {
+    "bem-walk": "0.0.4",
+    "coa": "^1.0.1"
+  }
 }
