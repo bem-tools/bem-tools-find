@@ -31,6 +31,7 @@
   "homepage": "https://github.com/bem-incubator/bem-tools-find#readme",
   "dependencies": {
     "JSONStream": "^1.0.7",
+    "bem-naming": "^0.5.1",
     "bem-walk": "0.0.4",
     "coa": "^1.0.1",
     "lodash": "^3.10.1",
