@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
     levels: {
         'libs/bem-core/common.blocks': {scheme: 'nested'},

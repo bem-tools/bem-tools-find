@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = [
     'libs/bem-core/common.blocks',
     //'libs/bem-core/desktop.blocks',
