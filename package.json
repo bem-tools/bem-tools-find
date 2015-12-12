@@ -1,0 +1,26 @@
+{
+  "name": "bem-tools-find",
+  "version": "0.0.0",
+  "description": "Tool for bem-entities lookup",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/bem-incubator/bem-tools-find.git"
+  },
+  "keywords": [
+    "bem",
+    "find",
+    "lookup",
+    "tools",
+    "bem-tools"
+  ],
+  "author": "SwinX, tormozz48",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bem-incubator/bem-tools-find/issues"
+  },
+  "homepage": "https://github.com/bem-incubator/bem-tools-find#readme"
+}
