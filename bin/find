@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
+'use strict';
 // Do not limit stack trace
 Error.stackTraceLimit = Infinity;
 
-require('../lib/cli.js').run()
+require('../lib/cli.js').run();

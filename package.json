@@ -7,7 +7,10 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pretest": "npm run lint",
+    "lint": "jshint . && jscs .",
+    "test": "istanbul test _mocha -- --recursive test/",
+    "cover": "npm run test --cover"
   },
   "repository": {
     "type": "git",
@@ -29,5 +32,12 @@
   "dependencies": {
     "bem-walk": "0.0.4",
     "coa": "^1.0.1"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "istanbul": "^0.4.1",
+    "jscs": "^2.7.0",
+    "jshint": "^2.9.1-rc1",
+    "mocha": "^2.3.4"
   }
 }
