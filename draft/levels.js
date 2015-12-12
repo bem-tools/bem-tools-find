@@ -1,5 +1,5 @@
 module.exports = [
-    //'libs/bem-core/common.blocks',
+    'libs/bem-core/common.blocks',
     //'libs/bem-core/desktop.blocks',
     //'libs/bem-core/touch.blocks',
     'libs/bem-components/common.blocks'
