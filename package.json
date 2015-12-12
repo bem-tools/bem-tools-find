@@ -34,7 +34,6 @@
     "bem-walk": "0.0.4",
     "coa": "^1.0.1",
     "lodash": "^3.10.1",
-    "through2": "^2.0.0",
     "through2-filter": "^2.0.0"
   },
   "devDependencies": {
