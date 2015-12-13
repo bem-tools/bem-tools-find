@@ -2,16 +2,15 @@
 
 var _ = require('lodash'),
     bemNaming = require('bem-naming'),
-    util = require('./util'),
-    find = require('./find'),
-    getView = require('./view');
+    util = require('../lib/util'),
+    find = require('../lib/find'),
+    getView = require('../lib/view');
 
 function execute(opts, args) {
     var criterias = util.criteriasFromBEMItems(args.entity);
     criterias.push(util.criteriaFromOptions(opts));
 
     opts = util.normalizeCliOptions(opts);
-
     find(criterias)
         .pipe(getView(opts.view)())
         .pipe(process.stdout);
@@ -64,14 +63,15 @@ module.exports = require('coa').Cmd()
     .end()
     .opt()
         .name('view')
+        .title('Type of output')
         .short('v')
         .long('view')
         .val(function(value) {
             if (!_.includes(['plain', 'table', 'tree'], value)) {
-                value = 'plain';
+                value = 'tree';
             }
             return value;
         })
-        .def('plain')
+        .def('tree')
     .end()
     .act(execute);
