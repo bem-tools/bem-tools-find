@@ -4,4 +4,6 @@
 // Do not limit stack trace
 Error.stackTraceLimit = Infinity;
 
-require('../cli.js').run();
+require('coa').Cmd()
+    .name('find').apply(require('../cli.js')).end()
+    .run();
