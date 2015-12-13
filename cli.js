@@ -2,9 +2,9 @@
 
 var _ = require('lodash'),
     bemNaming = require('bem-naming'),
-    util = require('../lib/util'),
-    find = require('../lib/find'),
-    getView = require('../lib/view');
+    util = require('./lib/util'),
+    find = require('./lib/find'),
+    getView = require('./lib/view');
 
 function execute(opts, args) {
     var criterias = util.criteriasFromBEMItems(args.entity);

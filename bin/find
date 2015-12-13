@@ -4,4 +4,4 @@
 // Do not limit stack trace
 Error.stackTraceLimit = Infinity;
 
-require('../cli/cli.js').run();
+require('../cli.js').run();
