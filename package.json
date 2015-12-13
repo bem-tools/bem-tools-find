@@ -38,6 +38,7 @@
     "coa": "^1.0.1",
     "easy-table": "^1.0.0",
     "flow-tostring": "^1.0.1",
+    "inherit": "^2.2.2",
     "lodash": "^3.10.1",
     "pretty-tree": "^1.0.0",
     "through2": "^2.0.0",
