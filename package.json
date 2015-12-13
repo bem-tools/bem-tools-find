@@ -23,8 +23,15 @@
     "tools",
     "bem-tools"
   ],
-  "author": "SwinX, tormozz48",
-  "license": "ISC",
+  "maintainers": [
+    "Andrey Kuznetsov <andrey.kuznetsov48@yandex.ru> (http://github.com/tormozz48)",
+    "Ilia Isupov <matumbaman@yandex-team.ru> (http://github.com/SwinX)"
+  ],
+  "contributors": [
+    "Andrey Kuznetsov <andrey.kuznetsov48@yandex.ru> (http://github.com/tormozz48)",
+    "Ilia Isupov <matumbaman@yandex-team.ru> (http://github.com/SwinX)"
+  ],
+  "license": "MPL-2.0",
   "bugs": {
     "url": "https://github.com/bem-incubator/bem-tools-find/issues"
   },
