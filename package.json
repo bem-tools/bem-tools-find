@@ -34,6 +34,7 @@
     "bem-config": "git://github.com/bem-incubator/bem-config.git",
     "bem-naming": "^0.5.1",
     "bem-walk": "0.0.4",
+    "chalk": "^1.1.1",
     "coa": "^1.0.1",
     "easy-table": "^1.0.0",
     "flow-tostring": "^1.0.1",
