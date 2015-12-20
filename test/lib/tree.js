@@ -43,46 +43,41 @@ describe('Tree', function() {
         assert.lengthOf(tree.getTree().nodes, 0);
     });
 
-    describe('addLevelNode', function() {
+    describe('add level node', function() {
         it('should add level node if it does not exist yet', function() {
-            tree.addLevelNode(levelItem);
+            tree.addNode(levelItem);
             assert.deepEqual(getChild(1), {label: 'some-level', nodes: []});
         });
 
         it('should not add level nodes with same labels multiple times', function() {
-            tree.addLevelNode(levelItem);
-            tree.addLevelNode(levelItem);
+            tree.addNode(levelItem);
+            tree.addNode(levelItem);
 
             assert.lengthOf(tree.getTree().nodes, 1);
         });
 
         it('should return founded or created level node', function() {
-            assert.deepEqual(tree.addLevelNode(levelItem), {label: 'some-level', nodes: []});
+            assert.deepEqual(tree.addNode(levelItem), {label: 'some-level', nodes: []});
         });
     });
 
-    describe('addBlockNode', function() {
+    describe('add block node', function() {
         var treeItem = {label: 'some-block', nodes: [], leaf: {'some-tech': 'some-path'}};
 
         it('should add block node if it does not exist yet', function() {
-            tree.addBlockNode(blockItem, true);
+            tree.addNode(blockItem, true);
             assert.deepEqual(getChild(2), treeItem);
         });
 
-        it('should not add leaf if corresponded flag is equal to false', function() {
-            tree.addBlockNode(blockItem, false);
-            assert.deepEqual(getChild(2), _.omit(treeItem, 'leaf'));
-        });
-
         it('should not add block nodes with same labels multiple times', function() {
-            tree.addBlockNode(blockItem, true);
-            tree.addBlockNode(blockItem, true);
+            tree.addNode(blockItem, true);
+            tree.addNode(blockItem, true);
 
             assert.lengthOf(getChild(1).nodes, 1);
         });
 
         it('should return founded or created block node', function() {
-            assert.deepEqual(tree.addBlockNode(blockItem, true), treeItem);
+            assert.deepEqual(tree.addNode(blockItem, true), treeItem);
         });
     });
 
@@ -99,24 +94,19 @@ describe('Tree', function() {
             };
 
         it('should add block mode node if it does not exist yet', function() {
-            tree.addModeNode(blockModeItem, true);
+            tree.addNode(blockModeItem, true);
             assert.deepEqual(getChild(3), treeItem);
         });
 
-        it('should not add leaf if corresponded flag is equal to false', function() {
-            tree.addModeNode(blockModeItem, false);
-            assert.deepEqual(getChild(4), _.omit(treeItem.nodes[0], 'leaf'));
-        });
-
         it('should not add block mode nodes with same labels multiple times', function() {
-            tree.addModeNode(blockModeItem, true);
-            tree.addModeNode(blockModeItem, true);
+            tree.addNode(blockModeItem, true);
+            tree.addNode(blockModeItem, true);
 
             assert.lengthOf(getChild(2).nodes, 1);
         });
 
         it('should return founded or created block mode node', function() {
-            assert(tree.addModeNode(blockModeItem, true), treeItem);
+            assert(tree.addNode(blockModeItem, true), treeItem);
         });
     });
 
@@ -128,24 +118,19 @@ describe('Tree', function() {
         };
 
         it('should add elem node if it does not exist yet', function() {
-            tree.addElemNode(elemItem, true);
+            tree.addNode(elemItem, true);
             assert.deepEqual(getChild(3), treeItem);
         });
 
-        it('should not add leaf if corresponded flag is equal to false', function() {
-            tree.addElemNode(elemItem, false);
-            assert.deepEqual(getChild(3), _.omit(treeItem, 'leaf'));
-        });
-
         it('should not add elem nodes with same labels multiple times', function() {
-            tree.addElemNode(elemItem, true);
-            tree.addElemNode(elemItem, true);
+            tree.addNode(elemItem, true);
+            tree.addNode(elemItem, true);
 
             assert.lengthOf(getChild(2).nodes, 1);
         });
 
         it('should return founded or created elem node', function() {
-            assert(tree.addElemNode(elemItem, true), treeItem);
+            assert(tree.addNode(elemItem, true), treeItem);
         });
     });
 
@@ -162,24 +147,19 @@ describe('Tree', function() {
         };
 
         it('should add elem mode node if it does not exist yet', function() {
-            tree.addElemModeNode(elemModeItem, true);
+            tree.addNode(elemModeItem, true);
             assert.deepEqual(getChild(4), treeItem);
         });
 
-        it('should not add leaf if corresponded flag is equal to false', function() {
-            tree.addElemModeNode(elemModeItem, false);
-            assert.deepEqual(getChild(5), _.omit(treeItem.nodes[0], 'leaf'));
-        });
-
         it('should not add elem mode nodes with same labels multiple times', function() {
-            tree.addElemModeNode(elemModeItem, true);
-            tree.addElemModeNode(elemModeItem, true);
+            tree.addNode(elemModeItem, true);
+            tree.addNode(elemModeItem, true);
 
             assert.lengthOf(getChild(3).nodes, 1);
         });
 
         it('should return founded or created elem mode node', function() {
-            assert(tree.addElemModeNode(elemModeItem, true), treeItem);
+            assert(tree.addNode(elemModeItem, true), treeItem);
         });
     });
 });
