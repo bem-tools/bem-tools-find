@@ -43,10 +43,10 @@
     "bem-walk": "0.0.4",
     "chalk": "^1.1.1",
     "coa": "^1.0.1",
-    "easy-table": "^1.0.0",
     "flow-tostring": "^1.0.1",
     "lodash": "^3.10.1",
     "pretty-tree": "^1.0.0",
+    "table": "^3.7.4",
     "through2": "^2.0.0",
     "through2-filter": "^2.0.0",
     "through2-map": "^2.0.0"
