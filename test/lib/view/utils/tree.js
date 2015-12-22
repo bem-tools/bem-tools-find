@@ -1,7 +1,7 @@
 'use strict';
 
 var _ = require('lodash'),
-    Tree = require('../../lib/tree');
+    Tree = require('../../../../lib/view/utils/tree');
 
 describe('Tree', function() {
     var tree,
