@@ -20,30 +20,57 @@ describe('table', function() {
 
     it('should return valid table column headers', function() {
         assert.deepEqual(tableUtil.getTableHeader(),
-            ['Block', 'Element', 'Mod Name', 'Mod Value', 'Tech', 'File Path']);
+            [
+                '\u001b[1m' + 'Block' + '\u001b[22m',
+                '\u001b[1m' + 'Element' + '\u001b[22m',
+                '\u001b[1m' + 'Mod Name' + '\u001b[22m',
+                '\u001b[1m' + 'Mod Value' + '\u001b[22m',
+                '\u001b[1m' + 'Tech' + '\u001b[22m',
+                '\u001b[1m' + 'File Path' + '\u001b[22m'
+            ]);
     });
 
     it('should return valid table row data for block entity', function() {
         assert.deepEqual(tableUtil.getTableRow(blockEntity), [
-            'some-block', '', '', '', 'some-tech', 'some-path'
+            '\u001b[33m' + 'some-block' + '\u001b[39m',
+            '',
+            '',
+            '',
+            '\u001b[33m' + 'some-tech' + '\u001b[39m',
+            '\u001b[33m' + 'some-path' + '\u001b[39m'
         ]);
     });
 
     it('should return valid table row data for block mod entity', function() {
         assert.deepEqual(tableUtil.getTableRow(blockModEntity), [
-            'some-block', '', 'some-mod-name', 'some-mod-val', 'some-tech', 'some-path'
+            '\u001b[32m' + 'some-block' + '\u001b[39m',
+            '',
+            '\u001b[32m' + 'some-mod-name' + '\u001b[39m',
+            '\u001b[32m' + 'some-mod-val' + '\u001b[39m',
+            '\u001b[32m' + 'some-tech' + '\u001b[39m',
+            '\u001b[32m' + 'some-path' + '\u001b[39m'
         ]);
     });
 
     it('should return valid table row data for block element entity', function() {
         assert.deepEqual(tableUtil.getTableRow(blockElemEntity), [
-            'some-block', 'some-elem', '', '', 'some-tech', 'some-path'
+            '\u001b[36m' + 'some-block' + '\u001b[39m',
+            '\u001b[36m' + 'some-elem' + '\u001b[39m',
+            '',
+            '',
+            '\u001b[36m' + 'some-tech' + '\u001b[39m',
+            '\u001b[36m' + 'some-path' + '\u001b[39m'
         ]);
     });
 
     it('should return table row data for block element mod entity', function() {
         assert.deepEqual(tableUtil.getTableRow(blockElemModEntity), [
-            'some-block', 'some-elem', 'some-mod-name', 'some-mod-val', 'some-tech', 'some-path'
+            '\u001b[35m' + 'some-block' + '\u001b[39m',
+            '\u001b[35m' + 'some-elem' + '\u001b[39m',
+            '\u001b[35m' + 'some-mod-name' + '\u001b[39m',
+            '\u001b[35m' + 'some-mod-val' + '\u001b[39m',
+            '\u001b[35m' + 'some-tech' + '\u001b[39m',
+            '\u001b[35m' + 'some-path' + '\u001b[39m'
         ]);
     });
 
