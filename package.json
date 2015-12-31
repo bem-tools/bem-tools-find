@@ -10,7 +10,7 @@
     "pretest": "npm run lint",
     "lint": "jshint . && jscs .",
     "test": "istanbul test _mocha -- --recursive test/",
-    "cover": "npm run test --cover"
+    "cover": "istanbul cover _mocha -- --recursive test/"
   },
   "repository": {
     "type": "git",
@@ -57,6 +57,7 @@
     "istanbul": "^0.4.1",
     "jscs": "^2.7.0",
     "jshint": "^2.9.1-rc1",
-    "mocha": "^2.3.4"
+    "mocha": "^2.3.4",
+    "sinon": "^1.17.2"
   }
 }

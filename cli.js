@@ -6,12 +6,16 @@ var _ = require('lodash'),
     find = require('./lib/find'),
     getView = require('./lib/view');
 
+/**
+ * Executes find process with given cli options and arguments
+ * @param {Object} opts - cli options
+ * @param {Object} args - cli arguments
+ */
 function execute(opts, args) {
-    var criterias = util.criteriasFromBEMItems(args.entity);
-    criterias.push(util.criteriaFromOptions(opts));
+    var conditions = util.conditionsFromBEMItems(args.entity);
+    conditions.push(util.conditionsFromOptions(opts));
 
-    opts = util.normalizeCliOptions(opts);
-    find(criterias)
+    find(conditions)
         .pipe(getView(opts.view)())
         .pipe(process.stdout);
 }
