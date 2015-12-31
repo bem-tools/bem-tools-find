@@ -1,6 +1,6 @@
 {
   "name": "bem-tools-find",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Tool for bem-entities lookup",
   "bin": {
     "find": "bin/find"
