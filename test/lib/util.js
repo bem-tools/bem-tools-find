@@ -6,6 +6,7 @@ var _ = require('lodash'),
 describe('util', function() {
     describe('conditionsFromOptions', function() {
         var baseExpected = {
+            levels: [],
             blocks: [],
             elements: [],
             modifiers: [],
@@ -57,6 +58,7 @@ describe('util', function() {
         it('should use given block name from BEM entity item', function() {
             var input = [{block: 'some-block'}],
                 expected = [{
+                    levels: [],
                     blocks: ['some-block'],
                     elements: [],
                     modifiers: [],
@@ -68,6 +70,7 @@ describe('util', function() {
         it('should use given block element name from BEM entity item', function() {
             var input = [{elem: 'some-element'}],
                 expected = [{
+                    levels: [],
                     blocks: [],
                     elements: ['some-element'],
                     modifiers: [],
@@ -79,6 +82,7 @@ describe('util', function() {
         it('should use given block modifier name from BEM entity item', function() {
             var input = [{modName: 'some-modifier'}],
                 expected = [{
+                    levels: [],
                     blocks: [],
                     elements: [],
                     modifiers: ['some-modifier'],
