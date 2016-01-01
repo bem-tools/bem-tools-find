@@ -27,6 +27,8 @@ $ npm install bem-tools-find
 ### Использование с помощью CLI-интерфейса.
 
 ```
+BEM Tool Find
+
 Usage:
   find COMMAND [OPTIONS] [ARGS]
   find [OPTIONS] [ARGS]
@@ -36,6 +38,7 @@ Commands:
 
 Options:
   -h, --help : Help
+  -l LEVEL, --level=LEVEL : Name of level(s)
   -b BLOCK, --block=BLOCK : Name of block(s)
   -e ELEMENT, --element=ELEMENT : Name of element(s)
   -m MODIFIER, --mod=MODIFIER : Name of modifier(s)
@@ -44,11 +47,13 @@ Options:
 
 Arguments:
   ENTITY : entity
+
 ```
 
 Здесь:
 
 * `-h`, `--help` - флаг предназначенный для получения справочной информации по вызову команды.
+* `-l`, `--level` - имя уровня(ей) переопределения блоков для поиска. Может быть использован несколько раз.
 * `-b`, `--block` - имя блока(ов) для поиска. Может быть использован несколько раз.
 * `-e`, `--element` - имя элемента(ов) блока(ов) для поиска. Может быть использован несколько раз.
 * `-m`, `--mod` - имя модификатора. Если указан также параметр элемента (`-e`, `--element`), 
@@ -66,6 +71,10 @@ $ ./node-modules/bem-tools-find/find
 * Поиск файлов блока `my-block`: 
 ```
 $ ./node-modules/bem-tools-find/find -b my-block
+```
+* Поиск файлов блока `my-block` на уровне переопределения `desktop.blocks`: 
+```
+$ ./node-modules/bem-tools-find/find -l desktop.blocks -b my-block
 ```
 * Поиск файлов для нескольких блоков:
 ```
@@ -100,9 +109,38 @@ $ ./node-modules/bem-tools-find/find -b my-block -v tree
 $ ./node-modules/bem-tools-find/find --help
 ```
 
+Кроме того, инструмент допускает использование сокращенного синтаксиса для поиска сущностей, например
+для того, чтобы найти файлы блоков `my-block1` и `my-block2`, можно использовать команду:
+```
+$ ./node-modules/bem-tools-find/find my-block1 my-block2
+```
+
+Аналогично для элементов и модификаторов блоков:
+```
+$ ./node-modules/bem-tools-find/find my-block1__some-elem
+```
+```
+$ ./node-modules/bem-tools-find/find my-block1_modName_modValue
+```
+
 ### Использование инструмента с помощью JS API.
 
-//TODO написать документацию
+`bem-tools-find` также может быть использован программно. Для этого нужно подключить зависимость
+`bem-tools-find` в модуль вашего проекта и передать переметры для поиска BEM-сущностей.
+```
+var bemToolsFind = require('bem-tools-find');
+
+bemToolsFind({
+    levels: ['level1'],
+    blocks: ['block1', 'block2'],
+    elements: ['elem1', 'elem2'],
+    modifiers: ['mod1', 'mod2'],
+    techs: ['tech1', 'tech2']
+}).pipe(process.stdout) //здесь вместо `process.stdout` можно использовать ваш собственный stream.
+```
+
+Примечание: в передаваемом объекте с параметрами поиска любые поля могут быть опущены в том случае если
+критерий поиска по ним не является необходимым.
 
 ## Тестирование
 
