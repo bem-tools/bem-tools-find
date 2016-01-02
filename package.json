@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Tool for bem-entities lookup",
   "bin": {
-    "find": "bin/find"
+    "bem-find": "bin/find"
   },
   "main": "index.js",
   "scripts": {
