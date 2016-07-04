@@ -1,9 +1,9 @@
 # bem-tools-find
 
 [![NPM version](http://img.shields.io/npm/v/bem-tools-find.svg?style=flat)](http://www.npmjs.org/package/bem-tools-find)
-[![Build Status](https://travis-ci.org/bem-incubator/bem-tools-find.svg)](https://travis-ci.org/bem-incubator/bem-tools-find)
-[![Coverage Status](https://coveralls.io/repos/bem-incubator/bem-tools-find/badge.svg?branch=master&service=github)](https://coveralls.io/github/bem-incubator/bem-tools-find?branch=master)
-[![David](https://img.shields.io/david/bem-incubator/bem-tools-find.svg)](https://david-dm.org/bem-incubator/bem-tools-find)
+[![Build Status](https://travis-ci.org/bem-contrib/bem-tools-find.svg)](https://travis-ci.org/bem-contrib/bem-tools-find)
+[![Coverage Status](https://coveralls.io/repos/bem-contrib/bem-tools-find/badge.svg?branch=master&service=github)](https://coveralls.io/github/bem-contrib/bem-tools-find?branch=master)
+[![David](https://img.shields.io/david/bem-contrib/bem-tools-find.svg)](https://david-dm.org/bem-contrib/bem-tools-find)
 
 ![Logo](./logo.ico)
 

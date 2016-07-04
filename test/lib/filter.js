@@ -4,10 +4,46 @@ var Filter = require('../../lib/filter');
 
 describe('Filter', function() {
     describe('apply', function() {
-        testBySingleCriteria_('blocks', 'block');
         testBySingleCriteria_('elements', 'elem');
         testBySingleCriteria_('modifiers', 'modName');
         testBySingleCriteria_('techs', 'tech');
+
+        it('should pass block item if no info about blocks provided in config', function() {
+            var filter = new Filter({}),
+                item = {
+                    entity: {
+                        block: 'foo'
+                    }
+                };
+            assert.equal(filter.apply(item), true);
+        });
+
+        it('should pass block item if block matches blocks to search', function() {
+            var opts = {
+                blocks: 'foo'
+            };
+            var filter = new Filter(opts),
+                item = {
+                    entity: {
+                        block: 'foo'
+                    }
+                };
+            assert.equal(filter.apply(item), true);
+        });
+
+        it('should not pass block item if block not match blocks to search', function() {
+            var opts = {
+                blocks: ['foo']
+            };
+            var filter = new Filter(opts),
+                item = {
+                    entity: {
+                        block: 'bar'
+                    }
+                };
+
+            assert.equal(filter.apply(item), false);
+        });
 
         it('should not pass if matches block, but not matches elem', function() {
             var filter = new Filter({
@@ -15,7 +51,9 @@ describe('Filter', function() {
                     elements: ['bar']
                 }),
                 item = {
-                    block: 'foo',
+                    entity: {
+                        block: 'foo'
+                    },
                     elem: 'baz'
                 };
 
@@ -28,7 +66,9 @@ describe('Filter', function() {
                     elements: ['bar']
                 }),
                 item = {
-                    block: 'foo',
+                    entity: {
+                        block: 'foo'
+                    },
                     elem: 'bar'
                 };
 
@@ -41,7 +81,9 @@ describe('Filter', function() {
                     modifiers: ['bar']
                 }),
                 item = {
-                    block: 'foo',
+                    entity: {
+                        block: 'foo'
+                    },
                     modName: 'baz'
                 };
 
@@ -54,7 +96,9 @@ describe('Filter', function() {
                     modifiers: ['bar']
                 }),
                 item = {
-                    block: 'foo',
+                    entity: {
+                        block: 'foo'
+                    },
                     modName: 'bar'
                 };
 
@@ -67,7 +111,9 @@ describe('Filter', function() {
                     techs: ['bar']
                 }),
                 item = {
-                    block: 'foo',
+                    entity: {
+                        block: 'foo'
+                    },
                     tech: 'baz'
                 };
 
@@ -80,7 +126,9 @@ describe('Filter', function() {
                     techs: ['bar']
                 }),
                 item = {
-                    block: 'foo',
+                    entity: {
+                        block: 'foo'
+                    },
                     tech: 'bar'
                 };
 
@@ -94,7 +142,9 @@ describe('Filter', function() {
                     modifiers: ['fizz']
                 }),
                 item = {
-                    block: 'foo',
+                    entity: {
+                        block: 'foo'
+                    },
                     elem: 'bar',
                     modName: 'buzz'
                 };
@@ -109,7 +159,9 @@ describe('Filter', function() {
                     modifiers: ['fizz']
                 }),
                 item = {
-                    block: 'foo',
+                    entity: {
+                        block: 'foo'
+                    },
                     elem: 'bar',
                     modName: 'fizz'
                 };
@@ -125,7 +177,9 @@ describe('Filter', function() {
                     techs: ['buzz']
                 }),
                 item = {
-                    block: 'foo',
+                    entity: {
+                        block: 'foo'
+                    },
                     elem: 'bar',
                     modName: 'fizz',
                     tech: 'BAZ'
@@ -142,7 +196,9 @@ describe('Filter', function() {
                     techs: ['buzz']
                 }),
                 item = {
-                    block: 'foo',
+                    entity: {
+                        block: 'foo'
+                    },
                     elem: 'bar',
                     modName: 'fizz',
                     tech: 'buzz'
@@ -158,7 +214,9 @@ describe('Filter', function() {
                     techs: ['buzz']
                 }),
                 item = {
-                    block: 'foo',
+                    entity: {
+                        block: 'foo'
+                    },
                     elem: 'bar',
                     tech: 'BAZ'
                 };
@@ -173,7 +231,9 @@ describe('Filter', function() {
                     techs: ['buzz']
                 }),
                 item = {
-                    block: 'foo',
+                    entity: {
+                        block: 'foo'
+                    },
                     elem: 'bar',
                     tech: 'buzz'
                 };
@@ -188,7 +248,9 @@ describe('Filter', function() {
                     techs: ['buzz']
                 }),
                 item = {
-                    block: 'foo',
+                    entity: {
+                        block: 'foo'
+                    },
                     modName: 'fizz',
                     tech: 'BAZ'
                 };
@@ -203,7 +265,9 @@ describe('Filter', function() {
                     techs: ['buzz']
                 }),
                 item = {
-                    block: 'foo',
+                    entity: {
+                        block: 'foo'
+                    },
                     modName: 'fizz',
                     tech: 'buzz'
                 };
