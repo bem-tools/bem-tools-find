@@ -161,31 +161,5 @@ describe('util', function() {
         it('should return result with apply function', function() {
             assert.instanceOf(util.getFiltersForConditions().apply, Function);
         });
-
-        it('should prepare BEM entity before apply filter', function() {
-            var Filter = require('../../lib/filter');
-            sinon.stub(Filter.prototype, 'apply', function() {
-                return true;
-            });
-            var apply = util.getFiltersForConditions({
-                blocks: ['foo'],
-                levels: [],
-                modifiers: [],
-                elements: [],
-                techs: []
-            }).apply;
-            apply({
-                entity: {
-                    block: 'foo'
-                },
-                tech: 'js'
-            });
-            assert.equal(Filter.prototype.apply.calledOnce, true);
-            assert.equal(Filter.prototype.apply.calledWith({
-                block: 'foo',
-                tech: 'js'
-            }), true);
-            Filter.prototype.apply.restore();
-        });
     });
 });
