@@ -5,5 +5,5 @@
 Error.stackTraceLimit = Infinity;
 
 require('coa').Cmd()
-    .name('find').apply(require('../cli.js')).end()
+    .name('bem-find').apply(require('../cli.js')).end()
     .run();

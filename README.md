@@ -1,8 +1,8 @@
 # bem-tools-find
 
 [![NPM version](http://img.shields.io/npm/v/bem-tools-find.svg?style=flat)](http://www.npmjs.org/package/bem-tools-find)
-[![Build Status](https://travis-ci.org/bem-incubator/bem-tools-find.svg)](https://travis-ci.org/bem-incubator/bem-tools-find)
-[![Coverage Status](https://coveralls.io/repos/bem-incubator/bem-tools-find/badge.svg?branch=master&service=github)](https://coveralls.io/github/bem-incubator/bem-tools-find?branch=master)
+[![Build Status](https://travis-ci.org/bem-tools/bem-tools-find.svg)](https://travis-ci.org/bem-tools/bem-tools-find)
+[![Coverage Status](https://coveralls.io/repos/bem-tools/bem-tools-find/badge.svg?branch=master&service=github)](https://coveralls.io/github/bem-tools/bem-tools-find?branch=master)
 [![David](https://img.shields.io/david/bem-incubator/bem-tools-find.svg)](https://david-dm.org/bem-incubator/bem-tools-find)
 
 ![Logo](./logo.ico)
@@ -30,8 +30,8 @@ $ npm install bem-tools-find
 BEM Tool Find
 
 Usage:
-  find COMMAND [OPTIONS] [ARGS]
-  find [OPTIONS] [ARGS]
+  bem-find COMMAND [OPTIONS] [ARGS]
+  bem-find [OPTIONS] [ARGS]
 
 Commands:
   completion : Shell completion
@@ -66,61 +66,61 @@ Arguments:
 
 * Поиск всех БЭМ сущностей в проекте:
 ```
-$ ./node-modules/bem-tools-find/find
+$ bem-find
 ```
 * Поиск файлов блока `my-block`: 
 ```
-$ ./node-modules/bem-tools-find/find -b my-block
+$ bem-find -b my-block
 ```
 * Поиск файлов блока `my-block` на уровне переопределения `desktop.blocks`: 
 ```
-$ ./node-modules/bem-tools-find/find -l desktop.blocks -b my-block
+$ bem-find -l desktop.blocks -b my-block
 ```
 * Поиск файлов для нескольких блоков:
 ```
-$ ./node-modules/bem-tools-find/find -b my-block1 -b my-block2
+$ bem-find -b my-block1 -b my-block2
 ```
 * Поиск файлов элемента `my-element` блока `my-block`:
 ```
-$ ./node-modules/bem-tools-find/find -b my-block -e my-element
+$ bem-find -b my-block -e my-element
 ``` 
 * Поиск файлов модификатора `my-mod` блока `my-block`:
 ```
-$ ./node-modules/bem-tools-find/find -b my-block -m my-mod
+$ bem-find -b my-block -m my-mod
 ``` 
 * Поиск файлов модификатора `my-mod` элемента `my-element` блока `my-block`:
 ```
-$ ./node-modules/bem-tools-find/find -b my-block -e my-element -m my-mod
+$ bem-find -b my-block -e my-element -m my-mod
 ``` 
 * Поиск файлов технологии `js` блока `my-block`:
 ```
-$ ./node-modules/bem-tools-find/find -b my-block -t js
+$ bem-find -b my-block -t js
 ```
 * Вывод результатов поиска файлов блока `my-block` в табличном виде:
 ```
-$ ./node-modules/bem-tools-find/find -b my-block -v table
+$ bem-find -b my-block -v table
 ```
 * Вывод результатов поиска файлов блока `my-block` в виде дерева БЭМ сущностей:
 ```
-$ ./node-modules/bem-tools-find/find -b my-block -v tree
+$ bem-find -b my-block -v tree
 ```
 * Получение справочной информации:
 ```
-$ ./node-modules/bem-tools-find/find --help
+$ bem-find --help
 ```
 
 Кроме того, инструмент допускает использование сокращенного синтаксиса для поиска сущностей, например
 для того, чтобы найти файлы блоков `my-block1` и `my-block2`, можно использовать команду:
 ```
-$ ./node-modules/bem-tools-find/find my-block1 my-block2
+$ bem-find my-block1 my-block2
 ```
 
 Аналогично для элементов и модификаторов блоков:
 ```
-$ ./node-modules/bem-tools-find/find my-block1__some-elem
+$ bem-find my-block1__some-elem
 ```
 ```
-$ ./node-modules/bem-tools-find/find my-block1_modName_modValue
+$ bem-find my-block1_modName_modValue
 ```
 
 ### Использование инструмента с помощью JS API.
@@ -171,4 +171,4 @@ $ npm run lint
 * [Кузнецов Андрей](https://github.com/tormozz48)
 * [Исупов Илья](https://github.com/SwinX)
 
-Вопросы и предложения присылать в раздел [issues](https://github.com/bem-incubator/bem-tools-find) репозитория данного инструмента.
+Вопросы и предложения присылать в раздел [issues](https://github.com/bem-tools/bem-tools-find) репозитория данного инструмента.
