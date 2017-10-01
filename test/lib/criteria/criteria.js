@@ -19,7 +19,7 @@ describe('criteria', function() {
 
         it('should return false if criteria has at least 1 defined condition', function() {
             var criteria = new Criteria({
-                blocks: ['foo']
+                blocks : ['foo']
             });
 
             assert.equal(criteria.isEmpty(), false);
@@ -34,15 +34,15 @@ describe('criteria', function() {
         });
 
         it('should return false if at least one of conditions differs between 2 criterias', function() {
-            var criteria = new Criteria({blocks: ['foo']}),
-                another = new Criteria({blocks: ['bar']});
+            var criteria = new Criteria({ blocks : ['foo'] }),
+                another = new Criteria({ blocks : ['bar'] });
 
             assert.equal(criteria.isEqual(another), false);
         });
 
         it('should return true if both criterias has same conditions', function() {
-            var criteria = new Criteria({blocks: ['foo']}),
-                another = new Criteria({blocks: ['foo']});
+            var criteria = new Criteria({ blocks : ['foo'] }),
+                another = new Criteria({ blocks : ['foo'] });
 
             assert.equal(criteria.isEqual(another), true);
         });
@@ -61,10 +61,10 @@ function testFieldInit_(fieldName) {
 
     it('should set field' + fieldName + 'as empty array if it was not passed', function() {
         var opts = {
-            blocks: ['foo'],
-            elements: ['bar'],
-            modifiers: ['fizz'],
-            techs: ['baz']
+            blocks : ['foo'],
+            elements : ['bar'],
+            modifiers : ['fizz'],
+            techs : ['baz']
         };
 
         delete opts[fieldName];

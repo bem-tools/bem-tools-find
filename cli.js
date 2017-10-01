@@ -29,11 +29,11 @@ module.exports = function() {
             .name('entity')
             .title('entity')
             .val(function(value) {
-                if (bemNaming.validate(value)) {
+                if(bemNaming.validate(value))
                     return bemNaming.parse(value);
-                } else {
+                else
                     return this.reject('Passed argument is not valid BEM entity');
-                }
+
             })
             .arr()
         .end()
@@ -78,9 +78,9 @@ module.exports = function() {
             .short('v')
             .long('view')
             .val(function(value) {
-                if (!_.includes(['plain', 'table', 'tree'], value)) {
+                if(!_.includes(['plain', 'table', 'tree'], value))
                     value = 'plain';
-                }
+
                 return value;
             })
             .def('plain')

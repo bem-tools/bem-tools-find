@@ -4,17 +4,17 @@ var _ = require('lodash'),
 
 describe('table', function() {
     var blockEntity = {
-            level: 'some-level',
-            block: 'some-block',
-            tech: 'some-tech',
-            path: 'some-path'
+            level : 'some-level',
+            block : 'some-block',
+            tech : 'some-tech',
+            path : 'some-path'
         },
         blockModEntity = _.extend({}, blockEntity, {
-            modName: 'some-mod-name',
-            modVal: 'some-mod-val'
+            modName : 'some-mod-name',
+            modVal : 'some-mod-val'
         }),
         blockElemEntity = _.extend({}, blockEntity, {
-            elem: 'some-elem'
+            elem : 'some-elem'
         }),
         blockElemModEntity = _.extend({}, blockEntity, blockElemEntity, blockModEntity);
 
@@ -76,13 +76,13 @@ describe('table', function() {
 
     it('should return valid table options', function() {
         assert.deepEqual(tableUtil.getTableOptions(), {
-            columns: {
-                0: {width: 10},
-                1: {width: 10},
-                2: {width: 10},
-                3: {width: 20},
-                4: {width: 20},
-                5: {width: 50}
+            columns : {
+                0 : { width : 10 },
+                1 : { width : 10 },
+                2 : { width : 10 },
+                3 : { width : 20 },
+                4 : { width : 20 },
+                5 : { width : 50 }
             }
         });
     });

@@ -11,12 +11,12 @@ describe('Filter', function() {
 
         it('should not pass if matches block, but not matches elem', function() {
             var filter = new Filter({
-                    blocks: ['foo'],
-                    elements: ['bar']
+                    blocks : ['foo'],
+                    elements : ['bar']
                 }),
                 item = {
-                    block: 'foo',
-                    elem: 'baz'
+                    block : 'foo',
+                    elem : 'baz'
                 };
 
             assert.equal(filter.apply(item), false);
@@ -24,12 +24,12 @@ describe('Filter', function() {
 
         it('should pass if matches block and element', function() {
             var filter = new Filter({
-                    blocks: ['foo'],
-                    elements: ['bar']
+                    blocks : ['foo'],
+                    elements : ['bar']
                 }),
                 item = {
-                    block: 'foo',
-                    elem: 'bar'
+                    block : 'foo',
+                    elem : 'bar'
                 };
 
             assert.equal(filter.apply(item), true);
@@ -37,12 +37,12 @@ describe('Filter', function() {
 
         it('should not pass if matches block, but does not matches modifier', function() {
             var filter = new Filter({
-                    blocks: ['foo'],
-                    modifiers: ['bar']
+                    blocks : ['foo'],
+                    modifiers : ['bar']
                 }),
                 item = {
-                    block: 'foo',
-                    modName: 'baz'
+                    block : 'foo',
+                    modName : 'baz'
                 };
 
             assert.equal(filter.apply(item), false);
@@ -50,12 +50,12 @@ describe('Filter', function() {
 
         it('should pass if it matches block and modifier', function() {
             var filter = new Filter({
-                    blocks: ['foo'],
-                    modifiers: ['bar']
+                    blocks : ['foo'],
+                    modifiers : ['bar']
                 }),
                 item = {
-                    block: 'foo',
-                    modName: 'bar'
+                    block : 'foo',
+                    modName : 'bar'
                 };
 
             assert.equal(filter.apply(item), true);
@@ -63,12 +63,12 @@ describe('Filter', function() {
 
         it('should not pass if matches block, but does not matches tech', function() {
             var filter = new Filter({
-                    blocks: ['foo'],
-                    techs: ['bar']
+                    blocks : ['foo'],
+                    techs : ['bar']
                 }),
                 item = {
-                    block: 'foo',
-                    tech: 'baz'
+                    block : 'foo',
+                    tech : 'baz'
                 };
 
             assert.equal(filter.apply(item), false);
@@ -76,12 +76,12 @@ describe('Filter', function() {
 
         it('should pass if it matches block and tech', function() {
             var filter = new Filter({
-                    blocks: ['foo'],
-                    techs: ['bar']
+                    blocks : ['foo'],
+                    techs : ['bar']
                 }),
                 item = {
-                    block: 'foo',
-                    tech: 'bar'
+                    block : 'foo',
+                    tech : 'bar'
                 };
 
             assert.equal(filter.apply(item), true);
@@ -89,14 +89,14 @@ describe('Filter', function() {
 
         it('should not pass if matches block and elem, but does not matches modifier', function() {
             var filter = new Filter({
-                    blocks: ['foo'],
-                    elements: ['bar'],
-                    modifiers: ['fizz']
+                    blocks : ['foo'],
+                    elements : ['bar'],
+                    modifiers : ['fizz']
                 }),
                 item = {
-                    block: 'foo',
-                    elem: 'bar',
-                    modName: 'buzz'
+                    block : 'foo',
+                    elem : 'bar',
+                    modName : 'buzz'
                 };
 
             assert.equal(filter.apply(item), false);
@@ -104,14 +104,14 @@ describe('Filter', function() {
 
         it('should pass if it matches block, element and modifier', function() {
             var filter = new Filter({
-                    blocks: ['foo'],
-                    elements: ['bar'],
-                    modifiers: ['fizz']
+                    blocks : ['foo'],
+                    elements : ['bar'],
+                    modifiers : ['fizz']
                 }),
                 item = {
-                    block: 'foo',
-                    elem: 'bar',
-                    modName: 'fizz'
+                    block : 'foo',
+                    elem : 'bar',
+                    modName : 'fizz'
                 };
 
             assert.equal(filter.apply(item), true);
@@ -119,16 +119,16 @@ describe('Filter', function() {
 
         it('should not pass if matches block, elem and modifier, but does not match tech', function() {
             var filter = new Filter({
-                    blocks: ['foo'],
-                    elements: ['bar'],
-                    modifiers: ['fizz'],
-                    techs: ['buzz']
+                    blocks : ['foo'],
+                    elements : ['bar'],
+                    modifiers : ['fizz'],
+                    techs : ['buzz']
                 }),
                 item = {
-                    block: 'foo',
-                    elem: 'bar',
-                    modName: 'fizz',
-                    tech: 'BAZ'
+                    block : 'foo',
+                    elem : 'bar',
+                    modName : 'fizz',
+                    tech : 'BAZ'
                 };
 
             assert.equal(filter.apply(item), false);
@@ -136,16 +136,16 @@ describe('Filter', function() {
 
         it('should pass if matches block, elem, modifier and tech', function() {
             var filter = new Filter({
-                    blocks: ['foo'],
-                    elements: ['bar'],
-                    modifiers: ['fizz'],
-                    techs: ['buzz']
+                    blocks : ['foo'],
+                    elements : ['bar'],
+                    modifiers : ['fizz'],
+                    techs : ['buzz']
                 }),
                 item = {
-                    block: 'foo',
-                    elem: 'bar',
-                    modName: 'fizz',
-                    tech: 'buzz'
+                    block : 'foo',
+                    elem : 'bar',
+                    modName : 'fizz',
+                    tech : 'buzz'
                 };
 
             assert.equal(filter.apply(item), true);
@@ -153,14 +153,14 @@ describe('Filter', function() {
 
         it('should not pass if it matches block and elem, but does not match tech', function() {
             var filter = new Filter({
-                    blocks: ['foo'],
-                    elements: ['bar'],
-                    techs: ['buzz']
+                    blocks : ['foo'],
+                    elements : ['bar'],
+                    techs : ['buzz']
                 }),
                 item = {
-                    block: 'foo',
-                    elem: 'bar',
-                    tech: 'BAZ'
+                    block : 'foo',
+                    elem : 'bar',
+                    tech : 'BAZ'
                 };
 
             assert.equal(filter.apply(item), false);
@@ -168,14 +168,14 @@ describe('Filter', function() {
 
         it('should pass if it matches block, elem and tech', function() {
             var filter = new Filter({
-                    blocks: ['foo'],
-                    elements: ['bar'],
-                    techs: ['buzz']
+                    blocks : ['foo'],
+                    elements : ['bar'],
+                    techs : ['buzz']
                 }),
                 item = {
-                    block: 'foo',
-                    elem: 'bar',
-                    tech: 'buzz'
+                    block : 'foo',
+                    elem : 'bar',
+                    tech : 'buzz'
                 };
 
             assert.equal(filter.apply(item), true);
@@ -183,14 +183,14 @@ describe('Filter', function() {
 
         it('should not pass if it matches block and mod, but does not match tech', function() {
             var filter = new Filter({
-                    blocks: ['foo'],
-                    modifiers: ['fizz'],
-                    techs: ['buzz']
+                    blocks : ['foo'],
+                    modifiers : ['fizz'],
+                    techs : ['buzz']
                 }),
                 item = {
-                    block: 'foo',
-                    modName: 'fizz',
-                    tech: 'BAZ'
+                    block : 'foo',
+                    modName : 'fizz',
+                    tech : 'BAZ'
                 };
 
             assert.equal(filter.apply(item), false);
@@ -198,14 +198,14 @@ describe('Filter', function() {
 
         it('should pass if it matches block, mod and tech', function() {
             var filter = new Filter({
-                    blocks: ['foo'],
-                    modifiers: ['fizz'],
-                    techs: ['buzz']
+                    blocks : ['foo'],
+                    modifiers : ['fizz'],
+                    techs : ['buzz']
                 }),
                 item = {
-                    block: 'foo',
-                    modName: 'fizz',
-                    tech: 'buzz'
+                    block : 'foo',
+                    modName : 'fizz',
+                    tech : 'buzz'
                 };
 
             assert.equal(filter.apply(item), true);

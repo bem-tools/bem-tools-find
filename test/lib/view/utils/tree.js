@@ -5,29 +5,29 @@ var _ = require('lodash'),
 
 describe('Tree', function() {
     var tree,
-        levelItem = {level: 'some-level'},
+        levelItem = { level : 'some-level' },
         blockItem = _.extend({}, levelItem, {
-            block: 'some-block',
-            tech: 'some-tech',
-            path: 'some-path'
+            block : 'some-block',
+            tech : 'some-tech',
+            path : 'some-path'
         }),
         blockModeItem = _.extend({}, levelItem, blockItem, {
-            modName: 'some-mod-name',
-            modVal: 'some-mod-val'
+            modName : 'some-mod-name',
+            modVal : 'some-mod-val'
         }),
         elemItem = _.extend({}, levelItem, blockItem, {
-            elem: 'some-elem'
+            elem : 'some-elem'
         }),
         elemModeItem = _.extend({}, levelItem, blockItem, elemItem, {
-            modName: 'some-elem-mod-name',
-            modVal: 'some-elem-mod-val'
+            modName : 'some-elem-mod-name',
+            modVal : 'some-elem-mod-val'
         });
 
     function getChild(order) {
         var result = tree.getTree();
-        for (var i = 1; i <= order; i++) {
+        for(var i = 1; i <= order; i++)
             result = result.nodes[0];
-        }
+
         return result;
     }
 
@@ -46,7 +46,7 @@ describe('Tree', function() {
     describe('add level node', function() {
         it('should add level node if it does not exist yet', function() {
             tree.addNode(levelItem);
-            assert.deepEqual(getChild(1), {label: 'some-level', nodes: []});
+            assert.deepEqual(getChild(1), { label : 'some-level', nodes : [] });
         });
 
         it('should not add level nodes with same labels multiple times', function() {
@@ -57,12 +57,12 @@ describe('Tree', function() {
         });
 
         it('should return founded or created level node', function() {
-            assert.deepEqual(tree.addNode(levelItem), {label: 'some-level', nodes: []});
+            assert.deepEqual(tree.addNode(levelItem), { label : 'some-level', nodes : [] });
         });
     });
 
     describe('add block node', function() {
-        var treeItem = {label: 'some-block', nodes: [], leaf: {'some-tech': 'some-path'}};
+        var treeItem = { label : 'some-block', nodes : [], leaf : { 'some-tech' : 'some-path' } };
 
         it('should add block node if it does not exist yet', function() {
             tree.addNode(blockItem, true);
@@ -83,15 +83,15 @@ describe('Tree', function() {
 
     describe('addModeNode', function() {
         var treeItem = {
-                label: '_some-mod-name',
-                nodes: [
-                    {
-                        label: 'some-mod-val',
-                        nodes: [],
-                        leaf: {'some-tech': 'some-path'}
-                    }
-                ]
-            };
+            label : '_some-mod-name',
+            nodes : [
+                {
+                    label : 'some-mod-val',
+                    nodes : [],
+                    leaf : { 'some-tech' : 'some-path' }
+                }
+            ]
+        };
 
         it('should add block mode node if it does not exist yet', function() {
             tree.addNode(blockModeItem, true);
@@ -112,9 +112,9 @@ describe('Tree', function() {
 
     describe('addElemNode', function() {
         var treeItem = {
-            label: '__some-elem',
-            nodes: [],
-            leaf: {'some-tech': 'some-path'}
+            label : '__some-elem',
+            nodes : [],
+            leaf : { 'some-tech' : 'some-path' }
         };
 
         it('should add elem node if it does not exist yet', function() {
@@ -136,12 +136,12 @@ describe('Tree', function() {
 
     describe('addElemModeNode', function() {
         var treeItem = {
-            label: '_some-elem-mod-name',
-            nodes: [
+            label : '_some-elem-mod-name',
+            nodes : [
                 {
-                    label: 'some-elem-mod-val',
-                    nodes: [],
-                    leaf: {'some-tech': 'some-path'}
+                    label : 'some-elem-mod-val',
+                    nodes : [],
+                    leaf : { 'some-tech' : 'some-path' }
                 }
             ]
         };

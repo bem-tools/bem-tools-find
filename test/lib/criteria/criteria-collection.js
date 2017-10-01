@@ -55,7 +55,7 @@ describe('CriteriaCollection', function() {
 
         it('should remove all empty criteria if added at least 1 non-empty criteria', function() {
             var nonEmptyCriteria = new Criteria({
-                    blocks: ['foo']
+                    blocks : ['foo']
                 }),
                 collection = new CriteriaCollection(nonEmptyCriteria);
 
@@ -67,10 +67,10 @@ describe('CriteriaCollection', function() {
 
         it('should return all non-empty criteria', function() {
             var criteria = new Criteria({
-                    blocks: ['foo']
+                    blocks : ['foo']
                 }),
                 anotherCriteria = new Criteria({
-                    blocks: ['bar']
+                    blocks : ['bar']
                 }),
                 collection = new CriteriaCollection([criteria, anotherCriteria]);
 
