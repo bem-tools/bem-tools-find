@@ -1,16 +1,14 @@
 {
   "name": "bem-tools-find",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Tool for bem-entities lookup",
-  "bin": {
-    "find": "bin/find"
-  },
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
     "pretest": "npm run lint",
-    "lint": "jshint . && jscs .",
     "test": "istanbul test _mocha -- --recursive test/",
-    "cover": "istanbul cover _mocha -- --recursive test/"
+    "cover": "istanbul cover _mocha -- --recursive test/",
+    "prepush": "npm test"
   },
   "repository": {
     "type": "git",
@@ -24,12 +22,12 @@
     "bem-tools"
   ],
   "maintainers": [
-    "Andrey Kuznetsov <andrey.kuznetsov48@yandex.ru> (http://github.com/tormozz48)",
-    "Ilia Isupov <matumbaman@yandex-team.ru> (http://github.com/SwinX)"
+    "Sergey Berezhnoy <veged@yandex-team.ru>"
   ],
   "contributors": [
     "Andrey Kuznetsov <andrey.kuznetsov48@yandex.ru> (http://github.com/tormozz48)",
-    "Ilia Isupov <matumbaman@yandex-team.ru> (http://github.com/SwinX)"
+    "Ilia Isupov <matumbaman@yandex-team.ru> (http://github.com/SwinX)",
+    "Sergey Berezhnoy <veged@yandex-team.ru>"
   ],
   "license": "MPL-2.0",
   "bugs": {
@@ -37,10 +35,10 @@
   },
   "homepage": "https://github.com/bem-incubator/bem-tools-find#readme",
   "dependencies": {
+    "@bem/sdk.config": "^0.0.2",
+    "@bem/sdk.walk": "^0.1.0",
     "JSONStream": "^1.0.7",
-    "bem-config": "git://github.com/bem-incubator/bem-config.git",
     "bem-naming": "^0.5.1",
-    "bem-walk": "0.0.4",
     "chalk": "^1.1.1",
     "coa": "^1.0.1",
     "flow-tostring": "^1.0.1",
@@ -55,9 +53,11 @@
     "chai": "^3.4.1",
     "coveralls": "^2.11.6",
     "istanbul": "^0.4.1",
-    "jscs": "^2.7.0",
-    "jshint": "^2.9.1-rc1",
+    "eslint": "^3.19.0",
     "mocha": "^2.3.4",
     "sinon": "^1.17.2"
+  },
+  "peerDependencies": {
+    "bem-tools-core": "^0.0.3"
   }
 }
