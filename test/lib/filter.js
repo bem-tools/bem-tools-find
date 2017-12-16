@@ -1,6 +1,7 @@
 'use strict';
 
-var Filter = require('../../lib/filter');
+var Filter = require('../../lib/filter'),
+    BemFile = require('@bem/sdk.file');
 
 describe('Filter', function() {
     describe('apply', function() {
@@ -10,240 +11,153 @@ describe('Filter', function() {
         testBySingleCriteria_('techs', 'tech');
 
         it('should not pass if matches block, but not matches elem', function() {
-            var filter = new Filter({
-                    blocks : ['foo'],
-                    elements : ['bar']
-                }),
-                item = {
-                    block : 'foo',
-                    elem : 'baz'
-                };
-
-            assert.equal(filter.apply(item), false);
+            assert.isNotOk(filterApply(
+                { blocks : ['foo'], elements : ['bar'] },
+                { block : 'foo', elem : 'baz' }
+            ));
         });
 
         it('should pass if matches block and element', function() {
-            var filter = new Filter({
-                    blocks : ['foo'],
-                    elements : ['bar']
-                }),
-                item = {
-                    block : 'foo',
-                    elem : 'bar'
-                };
-
-            assert.equal(filter.apply(item), true);
+            assert.isOk(filterApply(
+                { blocks : ['foo'], elements : ['bar'] },
+                { block : 'foo', elem : 'bar' }
+            ));
         });
 
         it('should not pass if matches block, but does not matches modifier', function() {
-            var filter = new Filter({
-                    blocks : ['foo'],
-                    modifiers : ['bar']
-                }),
-                item = {
-                    block : 'foo',
-                    modName : 'baz'
-                };
-
-            assert.equal(filter.apply(item), false);
+            assert.isNotOk(filterApply(
+                { blocks : ['foo'], modifiers : ['bar'] },
+                { block : 'foo', modName : 'baz' }
+            ));
         });
 
         it('should pass if it matches block and modifier', function() {
-            var filter = new Filter({
-                    blocks : ['foo'],
-                    modifiers : ['bar']
-                }),
-                item = {
-                    block : 'foo',
-                    modName : 'bar'
-                };
-
-            assert.equal(filter.apply(item), true);
+            assert.isOk(filterApply(
+                { blocks : ['foo'], modifiers : ['bar'] },
+                { block : 'foo', modName : 'bar' }
+            ));
         });
 
         it('should not pass if matches block, but does not matches tech', function() {
-            var filter = new Filter({
-                    blocks : ['foo'],
-                    techs : ['bar']
-                }),
-                item = {
-                    block : 'foo',
-                    tech : 'baz'
-                };
-
-            assert.equal(filter.apply(item), false);
+            assert.isNotOk(filterApply(
+                { blocks : ['foo'], techs : ['bar'] },
+                { block : 'foo', tech : 'baz' }
+            ));
         });
 
         it('should pass if it matches block and tech', function() {
-            var filter = new Filter({
-                    blocks : ['foo'],
-                    techs : ['bar']
-                }),
-                item = {
-                    block : 'foo',
-                    tech : 'bar'
-                };
-
-            assert.equal(filter.apply(item), true);
+            assert.isOk(filterApply(
+                { blocks : ['foo'], techs : ['bar'] },
+                { block : 'foo', tech : 'bar' }
+            ));
         });
 
         it('should not pass if matches block and elem, but does not matches modifier', function() {
-            var filter = new Filter({
-                    blocks : ['foo'],
-                    elements : ['bar'],
-                    modifiers : ['fizz']
-                }),
-                item = {
-                    block : 'foo',
-                    elem : 'bar',
-                    modName : 'buzz'
-                };
-
-            assert.equal(filter.apply(item), false);
+            assert.isNotOk(filterApply(
+                { blocks : ['foo'], elements : ['bar'], modifiers : ['fizz'] },
+                { block : 'foo', elem : 'bar', modName : 'buzz' }
+            ));
         });
 
         it('should pass if it matches block, element and modifier', function() {
-            var filter = new Filter({
-                    blocks : ['foo'],
-                    elements : ['bar'],
-                    modifiers : ['fizz']
-                }),
-                item = {
-                    block : 'foo',
-                    elem : 'bar',
-                    modName : 'fizz'
-                };
-
-            assert.equal(filter.apply(item), true);
+            assert.isOk(filterApply(
+                { blocks : ['foo'], elements : ['bar'], modifiers : ['fizz'] },
+                { block : 'foo', elem : 'bar', modName : 'fizz' }
+            ));
         });
 
         it('should not pass if matches block, elem and modifier, but does not match tech', function() {
-            var filter = new Filter({
+            assert.isNotOk(filterApply(
+                {
                     blocks : ['foo'],
                     elements : ['bar'],
                     modifiers : ['fizz'],
                     techs : ['buzz']
-                }),
-                item = {
+                },
+                {
                     block : 'foo',
                     elem : 'bar',
                     modName : 'fizz',
                     tech : 'BAZ'
-                };
-
-            assert.equal(filter.apply(item), false);
+                }
+            ));
         });
 
         it('should pass if matches block, elem, modifier and tech', function() {
-            var filter = new Filter({
+            assert.isOk(filterApply(
+                {
                     blocks : ['foo'],
                     elements : ['bar'],
                     modifiers : ['fizz'],
                     techs : ['buzz']
-                }),
-                item = {
+                },
+                {
                     block : 'foo',
                     elem : 'bar',
                     modName : 'fizz',
                     tech : 'buzz'
-                };
-
-            assert.equal(filter.apply(item), true);
+                }
+            ));
         });
 
         it('should not pass if it matches block and elem, but does not match tech', function() {
-            var filter = new Filter({
-                    blocks : ['foo'],
-                    elements : ['bar'],
-                    techs : ['buzz']
-                }),
-                item = {
-                    block : 'foo',
-                    elem : 'bar',
-                    tech : 'BAZ'
-                };
-
-            assert.equal(filter.apply(item), false);
+            assert.isNotOk(filterApply(
+                { blocks : ['foo'], elements : ['bar'], techs : ['buzz'] },
+                { block : 'foo', elem : 'bar', tech : 'BAZ' }
+            ));
         });
 
         it('should pass if it matches block, elem and tech', function() {
-            var filter = new Filter({
-                    blocks : ['foo'],
-                    elements : ['bar'],
-                    techs : ['buzz']
-                }),
-                item = {
-                    block : 'foo',
-                    elem : 'bar',
-                    tech : 'buzz'
-                };
-
-            assert.equal(filter.apply(item), true);
+            assert.isOk(filterApply(
+                { blocks : ['foo'], elements : ['bar'], techs : ['buzz'] },
+                { block : 'foo', elem : 'bar', tech : 'buzz' }
+            ));
         });
 
         it('should not pass if it matches block and mod, but does not match tech', function() {
-            var filter = new Filter({
-                    blocks : ['foo'],
-                    modifiers : ['fizz'],
-                    techs : ['buzz']
-                }),
-                item = {
-                    block : 'foo',
-                    modName : 'fizz',
-                    tech : 'BAZ'
-                };
-
-            assert.equal(filter.apply(item), false);
+            assert.isNotOk(filterApply(
+                { blocks : ['foo'], modifiers : ['fizz'], techs : ['buzz'] },
+                { block : 'foo', modName : 'fizz', tech : 'BAZ' }
+            ));
         });
 
         it('should pass if it matches block, mod and tech', function() {
-            var filter = new Filter({
-                    blocks : ['foo'],
-                    modifiers : ['fizz'],
-                    techs : ['buzz']
-                }),
-                item = {
-                    block : 'foo',
-                    modName : 'fizz',
-                    tech : 'buzz'
-                };
-
-            assert.equal(filter.apply(item), true);
+            assert.isOk(filterApply(
+                { blocks : ['foo'], modifiers : ['fizz'], techs : ['buzz'] },
+                { block : 'foo', modName : 'fizz', tech : 'buzz' }
+            ));
         });
     });
 });
 
 function testBySingleCriteria_(optsField, itemField) {
     it('should pass ' + itemField + ' item if no info about ' + optsField + ' provided in config', function() {
-        var filter = new Filter({}),
-            item = {};
-
+        var item = {};
         item[itemField] = 'foo';
 
-        assert.equal(filter.apply(item), true);
+        assert.isOk(filterApply({}, item));
     });
 
     it('should pass ' + itemField + ' item if ' + itemField + ' matches ' + optsField + ' to search', function() {
-        var opts = {};
-        opts[optsField] = ['foo'];
-
-        var filter = new Filter(opts),
-            item = {};
-
+        var filter = {}, item = {};
+        filter[optsField] = ['foo'];
         item[itemField] = 'foo';
 
-        assert.equal(filter.apply(item), true);
+        assert.isOk(filterApply(filter, item));
     });
 
     it('should not pass ' + itemField + ' item if ' + itemField + 'not match ' + optsField + ' to search', function() {
-        var opts = {};
-        opts[optsField] = ['foo'];
-
-        var filter = new Filter(opts),
-            item = {};
-
+        var filter = {}, item = {};
+        filter[optsField] = ['foo'];
         item[itemField] = 'bar';
 
-        assert.equal(filter.apply(item), false);
+
+        assert.isNotOk(filterApply(filter, item));
     });
+}
+
+function filterApply(filter, item) {
+    filter.block || (filter.block = 'foo');
+    item.block || (item.block = 'foo');
+    return (new Filter(filter)).apply(new BemFile({ cell : item }));
 }

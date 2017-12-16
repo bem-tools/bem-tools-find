@@ -1,7 +1,7 @@
 'use strict';
 
 var _ = require('lodash'),
-    bemNaming = require('bem-naming'),
+    bemNaming = require('@bem/sdk.naming.entity'),
     util = require('./lib/util'),
     find = require('./lib/find'),
     getView = require('./lib/view');
@@ -29,11 +29,8 @@ module.exports = function() {
             .name('entity')
             .title('entity')
             .val(function(value) {
-                if(bemNaming.validate(value))
-                    return bemNaming.parse(value);
-                else
-                    return this.reject('Passed argument is not valid BEM entity');
-
+                return bemNaming.parse(value) ||
+                    this.reject('Passed argument is not valid BEM entity');
             })
             .arr()
         .end()

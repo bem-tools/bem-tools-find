@@ -2,7 +2,7 @@
   "name": "bem-tools-find",
   "version": "0.0.2",
   "description": "Tool for bem-entities lookup",
-  "main": "index.js",
+  "main": "lib/find",
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
@@ -36,9 +36,9 @@
   "homepage": "https://github.com/bem-incubator/bem-tools-find#readme",
   "dependencies": {
     "@bem/sdk.config": "^0.0.2",
+    "@bem/sdk.naming.entity": "^0.2.3",
     "@bem/sdk.walk": "^0.1.0",
     "JSONStream": "^1.0.7",
-    "bem-naming": "^0.5.1",
     "chalk": "^1.1.1",
     "coa": "^1.0.1",
     "flow-tostring": "^1.0.1",
@@ -50,6 +50,7 @@
     "through2-map": "^2.0.0"
   },
   "devDependencies": {
+    "@bem/sdk.file": "^0.2.3",
     "chai": "^3.4.1",
     "coveralls": "^2.11.6",
     "eslint": "^4.8.0",
